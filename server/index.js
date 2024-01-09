@@ -14,7 +14,7 @@ app.use("/user", userRouter)
 
 
 app.get('/', (req, res) => {
-    res.json({ 'message': 'Connection successful!'})
+    res.json({ 'message': 'Connection successful! At port 80'})
 });
 
 // Connect to MongoDB
