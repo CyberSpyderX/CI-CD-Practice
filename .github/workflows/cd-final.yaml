@@ -16,7 +16,9 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
+          echo "Hello"
           echo "$SSH_PRIVATE_KEY" >> keyfile
+          echo "There"
           chmod 600 keyfile
           mkdir -p ~/.ssh
           cp known_hosts ~/.ssh/known_hosts
