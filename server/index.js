@@ -13,6 +13,10 @@ app.use("/admin", adminRouter)
 app.use("/user", userRouter)
 
 
+app.get('/', (req, res) => {
+    res.json({ 'message': 'Connection successful!'})
+});
+
 // Connect to MongoDB
 // DONT MISUSE THIS THANKYOU!!
 mongoose.connect('mongodb://localhost:27017/courses', { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" });
