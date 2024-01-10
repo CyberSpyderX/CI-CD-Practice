@@ -20,7 +20,7 @@ jobs:
           chmod 600 keyfile
       - name: Print the keyfile
         run: |
-          echo keyfile
+          echo "$(<keyfile)"
 
       - name: Setup known_hosts
         run: |
