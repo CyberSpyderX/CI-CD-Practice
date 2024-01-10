@@ -14,7 +14,7 @@ app.use("/user", userRouter)
 
 
 app.get('/', (req, res) => {
-    res.json({ 'message': 'All changes pushed! Congratulations!'})
+    res.json({ 'message': 'All changes pushed! Congratulations! One last time...'})
 });
 
 // Connect to MongoDB
