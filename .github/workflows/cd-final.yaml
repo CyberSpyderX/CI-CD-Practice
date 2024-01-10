@@ -12,14 +12,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: SSH and deploy
+      - name: Get SSH secret
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          echo "$SSH_PRIVATE_KE"
           echo "$SSH_PRIVATE_KEY" >> keyfile
-          echo "There"
           chmod 600 keyfile
+      - name: Print the keyfile
+        run: |
+          echo keyfile
+
+      - name: Setup known_hosts
+        run: |
           mkdir -p ~/.ssh
           cp known_hosts ~/.ssh/known_hosts
+
+      - name: SSH
+        run: |
           ssh -t -i keyfile ec2-user@ec2-3-22-170-121.us-east-2.compute.amazonaws.com "sudo bash ./deploy.sh"
